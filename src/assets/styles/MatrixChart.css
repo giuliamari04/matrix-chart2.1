@@ -1,0 +1,182 @@
+/* src/components/MatrixChart/MatrixChart.css */
+
+
+.matrix-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* ========================================================= */
+/* SVG                                                       */
+/* ========================================================= */
+
+
+.matrix-svg {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  overflow: visible;
+}
+
+
+/* ========================================================= */
+/* LINEE                                                     */
+/* ========================================================= */
+
+.matrix-line {
+  fill: none;
+
+  stroke: #20252b;
+  stroke-width: 4;
+
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.matrix-line.outer {
+  stroke-width: 5;
+}
+
+.matrix-line.thin {
+  stroke-width: 2;
+}
+
+
+/* ========================================================= */
+/* GENERATION LINES                                          */
+/* ========================================================= */
+/* 
+.generation-line {
+  fill: none;
+  stroke-width: 5;
+}
+
+.female-line {
+  stroke: #e84b4b;
+}
+
+.male-line {
+  stroke: #8747b5;
+} */
+
+
+/* ========================================================= */
+/* LINEA TRATTEGGIATA                                        */
+/* ========================================================= */
+
+.dotted-line {
+  stroke: #333;
+
+  stroke-width: 2;
+
+  stroke-dasharray: 8 8;
+
+  fill: none;
+}
+
+
+/* ========================================================= */
+/* NODI                                                      */
+/* ========================================================= */
+
+.matrix-node {
+  cursor: default;
+}
+
+
+/* ========================================================= */
+/* LABEL GENERAZIONE                                         */
+/* ========================================================= */
+
+.generation-label {
+  fill: #828282;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  text-anchor: middle;
+}
+
+
+/* ========================================================= */
+/* TESTO SEZIONI                                             */
+/* ========================================================= */
+
+.section-text {
+  fill: #757474;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  text-anchor: middle;
+}
+
+.section-text-year {
+  fill: #757474;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  text-anchor: middle;
+}
+
+/* ========================================================= */
+/* SIMBOLI                                                    */
+/* ========================================================= */
+
+.money-symbol {
+  fill: #9bd65b;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 40px;
+
+  font-weight: bold;
+
+  text-anchor: middle;
+}
+
+
+.heart-symbol {
+  fill: #e84b4b;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 40px;
+
+  font-weight: bold;
+
+  text-anchor: middle;
+}
+
+
+/* ========================================================= */
+/* ETÀ                                                       */
+/* ========================================================= */
+
+.age-label {
+  fill: #686666;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  text-anchor: middle;
+}
