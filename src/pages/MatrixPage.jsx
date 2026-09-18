@@ -3,6 +3,7 @@ import MatrixForm from "../components/MatrixForm";
 import MatrixChart from "../components/MatrixChart/MatrixChart";
 import HealthTable from "../components/HealthTable";
 import { calculateMatrix } from "../utils/calcolomatrixChart";
+import ReadingCards from "../components/ReadingCards";
 
 export default function MatrixPage() {
     const [matrix, setMatrix] = useState(null);
@@ -49,6 +50,7 @@ export default function MatrixPage() {
                 <section className="matrix-result">
                     <MatrixChart matrix={matrix} />
                     <HealthTable matrix={matrix} />
+                    <ReadingCards matrix={matrix} />
                 </section>
             )}
         </div>

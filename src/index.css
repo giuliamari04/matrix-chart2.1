@@ -346,7 +346,7 @@ h2 {
 }
 
 .health-row strong {
-    text-align: center;
+    text-align: start;
 }
 
 .health-total {
@@ -452,6 +452,19 @@ h2 {
     font-size: 30px;
 }
 
+.img-modal{
+    max-height: 400px;
+}
+
+.tarot-modal-content{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.tarot-modal-text{
+    dispaly:flex;
+    flex-direction: column;
+}
 
 /* LOADING */
 
@@ -532,4 +545,13 @@ h2 {
         flex-direction: column;
         align-items: center;
     }
+.img-modal{
+    max-width: 200px;
+}
+
+.tarot-modal-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 }
