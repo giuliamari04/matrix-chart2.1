@@ -40,7 +40,9 @@ a {
 }
 
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
     position: sticky;
@@ -79,7 +81,9 @@ a {
 }
 
 
-/* GENERIC */
+/* =========================
+   GENERIC
+========================= */
 
 .page {
     max-width: 1200px;
@@ -121,7 +125,9 @@ h2 {
 }
 
 
-/* FORM */
+/* =========================
+   FORM
+========================= */
 
 .matrix-form,
 .contact-form {
@@ -190,7 +196,9 @@ h2 {
 }
 
 
-/* MATRIX */
+/* =========================
+   MATRIX
+========================= */
 
 .matrix-section,
 .health-section {
@@ -286,7 +294,9 @@ h2 {
 }
 
 
-/* SUMMARY */
+/* =========================
+   SUMMARY
+========================= */
 
 .matrix-summary {
     display: grid;
@@ -319,7 +329,9 @@ h2 {
 }
 
 
-/* HEALTH */
+/* =========================
+   HEALTH
+========================= */
 
 .health-table {
     border: 1px solid var(--line);
@@ -365,7 +377,9 @@ h2 {
 }
 
 
-/* TAROT */
+/* =========================
+   TAROT
+========================= */
 
 .tarot-grid {
     display: grid;
@@ -409,7 +423,9 @@ h2 {
 }
 
 
-/* MODAL */
+/* =========================
+   MODAL
+========================= */
 
 .modal-overlay {
     position: fixed;
@@ -424,13 +440,16 @@ h2 {
     padding: 20px;
 
     background: rgba(0, 0, 0, 0.75);
+
+    /* Evita problemi con contenuti molto alti */
+    overflow: hidden;
 }
 
 .tarot-modal {
     position: relative;
 
-    max-width: 600px;
     width: 100%;
+    max-width: 600px;
 
     padding: 40px;
 
@@ -438,12 +457,24 @@ h2 {
 
     border: 1px solid var(--gold);
     border-radius: 20px;
+
+    /* La modale non può superare lo schermo */
+    max-height: calc(100dvh - 40px);
+
+    /* Importante: impedisce al contenuto di
+       allargare/ingrandire la modale */
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-close {
     position: absolute;
     top: 15px;
     right: 15px;
+
+    z-index: 10;
 
     background: none;
     border: 0;
@@ -452,21 +483,35 @@ h2 {
     font-size: 30px;
 }
 
-.img-modal{
+.img-modal {
     max-height: 400px;
+    max-width: 100%;
+
+    object-fit: contain;
 }
 
-.tarot-modal-content{
+
+/* CONTENUTO MODALE */
+
+.tarot-modal-content {
     display: flex;
     flex-direction: row;
     gap: 20px;
-}
-.tarot-modal-text{
-    dispaly:flex;
-    flex-direction: column;
+
+    min-height: 0;
 }
 
-/* LOADING */
+.tarot-modal-text {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+
+/* =========================
+   LOADING
+========================= */
 
 .loading {
     text-align: center;
@@ -494,7 +539,9 @@ h2 {
 }
 
 
-/* SUCCESS */
+/* =========================
+   SUCCESS
+========================= */
 
 .success-message {
     max-width: 500px;
@@ -509,7 +556,9 @@ h2 {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
 
@@ -517,6 +566,9 @@ h2 {
         gap: 12px;
         font-size: 14px;
     }
+
+
+    /* MATRIX */
 
     .matrix-summary {
         grid-template-columns: 1fr;
@@ -536,6 +588,9 @@ h2 {
         height: 110px;
     }
 
+
+    /* HEALTH */
+
     .health-row {
         font-size: 13px;
         padding: 14px 10px;
@@ -545,13 +600,104 @@ h2 {
         flex-direction: column;
         align-items: center;
     }
-.img-modal{
-    max-width: 200px;
-}
 
-.tarot-modal-content{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+
+    /* =========================
+       MODAL MOBILE
+    ========================= */
+
+    .modal-overlay {
+        padding: 15px;
+
+        /* La modale resta sempre dentro lo schermo */
+        align-items: center;
+    }
+
+    .tarot-modal {
+        width: 100%;
+
+        /*
+         * Non usare height: 100%.
+         * La modale si adatta al contenuto,
+         * ma non può superare l'altezza dello schermo.
+         */
+        height: auto;
+        max-height: calc(100dvh - 30px);
+
+        padding: 30px 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+
+    /* CONTENUTO */
+
+    .tarot-modal-content {
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+
+        /*
+         * Permette al contenuto interno di
+         * restringersi invece di uscire dalla card.
+         */
+        flex: 1;
+        min-height: 0;
+
+        overflow: hidden;
+    }
+
+
+    /* IMMAGINE */
+
+    .img-modal {
+        width: auto;
+        max-width: 200px;
+        max-height: 250px;
+
+        object-fit: contain;
+
+        /*
+         * L'immagine non viene compressa
+         * quando il testo è molto lungo.
+         */
+        flex-shrink: 0;
+
+        align-self: center;
+    }
+
+
+    /* TESTO */
+
+    .tarot-modal-text {
+        display: flex;
+        flex-direction: column;
+
+        /*
+         * Questa è la parte fondamentale.
+         */
+        flex: 1;
+        min-height: 0;
+
+        /*
+         * Il testo rimane dentro la card
+         * e compare la scrollbar quando necessario.
+         */
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        /*
+         * Spazio tra testo e scrollbar.
+         */
+        padding-right: 8px;
+
+        /*
+         * Migliora lo scrolling su dispositivi touch.
+         */
+        -webkit-overflow-scrolling: touch;
+    }
 }

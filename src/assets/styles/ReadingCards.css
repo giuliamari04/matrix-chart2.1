@@ -1,3 +1,563 @@
+:root {
+    --ink: #090a12;
+    --surface: #12131e;
+    --panel: rgba(22, 23, 36, 0.82);
+    --line: rgba(230, 198, 126, 0.2);
+    --gold: #e6c67e;
+    --violet: #a89ae8;
+    --muted: #aaa9b6;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--white);
+    font-family: Arial, sans-serif;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    background: rgba(9, 10, 18, 0.8);
+    backdrop-filter: blur(16px);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 20px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   GENERIC
+   ========================================================= */
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+.hero,
+.page-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 80px);
+    line-height: 1;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: var(--gold);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.hero-description {
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.matrix-form,
+.contact-form {
+    max-width: 500px;
+    margin: 40px auto 0;
+
+    padding: 32px;
+
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    color: var(--muted);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid var(--line);
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--gold);
+}
+
+.primary-button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: 0;
+    border-radius: 10px;
+
+    background: var(--gold);
+    color: var(--ink);
+
+    font-weight: 700;
+}
+
+.primary-button:hover {
+    transform: translateY(-1px);
+}
+
+.form-error {
+    color: #e99;
+}
+
+
+/* =========================================================
+   MATRIX
+   ========================================================= */
+
+.matrix-section,
+.health-section {
+    margin-top: 80px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.matrix-chart {
+    position: relative;
+
+    width: min(600px, 100%);
+    aspect-ratio: 1;
+
+    margin: 0 auto;
+
+    border: 1px solid var(--line);
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 154, 232, 0.12),
+            transparent 60%
+        );
+}
+
+.matrix-node {
+    position: absolute;
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--surface);
+    border: 1px solid var(--gold);
+
+    transform: translate(-50%, -50%);
+}
+
+.matrix-node-label {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.matrix-node-number {
+    color: var(--gold);
+    font-size: 28px;
+}
+
+.matrix-node-title {
+    font-size: 10px;
+    text-align: center;
+}
+
+.node-top {
+    top: 12%;
+    left: 50%;
+}
+
+.node-right {
+    top: 50%;
+    left: 88%;
+}
+
+.node-bottom {
+    top: 88%;
+    left: 50%;
+}
+
+.node-left {
+    top: 50%;
+    left: 12%;
+}
+
+.node-center {
+    top: 50%;
+    left: 50%;
+
+    width: 140px;
+    height: 140px;
+
+    border-width: 2px;
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+.matrix-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    max-width: 700px;
+    margin: 40px auto;
+}
+
+.summary-card {
+    padding: 24px;
+
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+.summary-card span {
+    display: block;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.summary-card strong {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   HEALTH
+   ========================================================= */
+
+.health-table {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.health-row {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.health-row:last-child {
+    border-bottom: 0;
+}
+
+.health-header {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.health-row strong {
+    text-align: start;
+}
+
+.health-total {
+    margin-top: 20px;
+
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+
+    padding: 20px;
+
+    border: 1px solid var(--line);
+    border-radius: 16px;
+
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   TAROT
+   ========================================================= */
+
+.tarot-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(180px, 1fr)
+    );
+
+    gap: 20px;
+}
+
+.tarot-card {
+    min-height: 260px;
+
+    padding: 24px;
+
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+
+    color: white;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.tarot-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.tarot-card-number {
+    color: var(--gold);
+    font-size: 40px;
+}
+
+.tarot-card span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   MODAL
+   ========================================================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    overflow: hidden;
+}
+
+.tarot-modal {
+    position: relative;
+
+    width: 100%;
+    max-width: 600px;
+
+    padding: 40px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+
+    max-height: calc(100dvh - 40px);
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    z-index: 10;
+
+    background: none;
+    border: 0;
+
+    color: white;
+    font-size: 30px;
+}
+
+.img-modal {
+    max-width: 100%;
+    max-height: 400px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   TAROT MODAL CONTENT
+   ========================================================= */
+
+.tarot-modal-content {
+    display: flex;
+    flex-direction: row;
+
+    gap: 20px;
+
+    min-width: 0;
+    min-height: 0;
+
+    flex: 1;
+}
+
+.tarot-modal-text {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+    min-height: 0;
+}
+
+
+/* =========================================================
+   LOADING
+   ========================================================= */
+
+.loading {
+    text-align: center;
+    padding: 60px;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+
+    margin: 0 auto 20px;
+
+    border: 3px solid var(--line);
+    border-top-color: var(--gold);
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   SUCCESS
+   ========================================================= */
+
+.success-message {
+    max-width: 500px;
+    margin: auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border: 1px solid var(--line);
+    border-radius: 20px;
+}
+
 
 /* =========================================================
    READING SECTION
@@ -13,7 +573,7 @@
 
 
 /* =========================================================
-   HEADER
+   READING HEADER
    ========================================================= */
 
 .reading-cards-section .section-heading {
@@ -57,7 +617,7 @@
 
 
 /* =========================================================
-   LISTA VERTICALE
+   READING CARDS
    ========================================================= */
 
 .reading-cards {
@@ -71,7 +631,7 @@
 
 
 /* =========================================================
-   CARD
+   READING CARD
    ========================================================= */
 
 .reading-card {
@@ -80,7 +640,7 @@
     grid-template-columns: 280px minmax(0, 1fr);
 
     width: 100%;
-
+    height:80vh;
     overflow: hidden;
 
     border: 1px solid rgba(100, 80, 60, 0.25);
@@ -108,14 +668,14 @@
 
 
 /* =========================================================
-   IMMAGINE
+   READING IMAGE
    ========================================================= */
 
 .reading-card-image {
     position: relative;
 
     width: 100%;
-    min-height: 360px;
+    height: fit-content;
 
     overflow: hidden;
 
@@ -139,7 +699,7 @@
 
 
 /* =========================================================
-   CONTENUTO
+   READING CONTENT
    ========================================================= */
 
 .reading-card-content {
@@ -147,13 +707,14 @@
     flex-direction: column;
 
     min-width: 0;
+    min-height: 0;
 
     padding: 42px 48px 46px;
 }
 
 
 /* =========================================================
-   TOP
+   READING TOP
    ========================================================= */
 
 .reading-card-top {
@@ -164,6 +725,8 @@
     gap: 20px;
 
     margin-bottom: 18px;
+
+    flex-shrink: 0;
 }
 
 .reading-card-label {
@@ -194,7 +757,7 @@
 
 
 /* =========================================================
-   TITLE
+   READING TITLE
    ========================================================= */
 
 .reading-card h3 {
@@ -204,17 +767,56 @@
     line-height: 1.2;
 
     letter-spacing: -0.025em;
+
+    flex-shrink: 0;
 }
 
 
 /* =========================================================
-   DESCRIPTION
+   READING DESCRIPTION
    ========================================================= */
 
 .reading-card-description {
+    width: 100%;
     max-width: 680px;
 
     margin-top: 24px;
+
+    /*
+     * Fondamentale per il flexbox:
+     * permette alla descrizione di restringersi.
+     */
+    min-height: 0;
+
+    /*
+     * La descrizione prende lo spazio disponibile.
+     */
+    flex: 1 1 auto;
+
+    /*
+     * Scroll verticale quando il testo supera
+     * lo spazio disponibile.
+     */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /*
+     * Spazio tra testo e scrollbar.
+     */
+    padding-right: 10px;
+
+    /*
+     * Scrolling fluido su mobile.
+     */
+    -webkit-overflow-scrolling: touch;
+
+    /*
+     * Firefox.
+     */
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(230, 198, 126, 0.45)
+        rgba(255, 255, 255, 0.04);
 }
 
 .reading-card-description p {
@@ -230,16 +832,44 @@
 
 
 /* =========================================================
-   DETAIL
+   READING DESCRIPTION SCROLLBAR
+   ========================================================= */
+
+.reading-card-description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.reading-card-description::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.04);
+
+    border-radius: 10px;
+}
+
+.reading-card-description::-webkit-scrollbar-thumb {
+    background: rgba(230, 198, 126, 0.45);
+
+    border-radius: 10px;
+}
+
+.reading-card-description::-webkit-scrollbar-thumb:hover {
+    background: rgba(230, 198, 126, 0.7);
+}
+
+
+/* =========================================================
+   READING DETAIL
    ========================================================= */
 
 .reading-card-detail {
+    width: 100%;
     max-width: 680px;
 
     margin-top: 32px;
     padding-top: 26px;
 
     border-top: 1px solid rgba(100, 80, 60, 0.13);
+
+    flex-shrink: 0;
 }
 
 .reading-card-detail h4 {
@@ -265,14 +895,13 @@
 
 
 /* =========================================================
-   DESKTOP LARGE
+   READING DESKTOP LARGE
    ========================================================= */
 
 @media (min-width: 1200px) {
 
     .reading-cards-section {
         max-width: 1160px;
-        
     }
 
     .reading-card {
@@ -330,7 +959,123 @@
    MOBILE
    ========================================================= */
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
+
+    /* =====================================================
+       NAVBAR
+       ===================================================== */
+
+    .nav-links {
+        gap: 12px;
+        font-size: 14px;
+    }
+
+
+    /* =====================================================
+       MATRIX
+       ===================================================== */
+
+    .matrix-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .matrix-node {
+        width: 85px;
+        height: 85px;
+    }
+
+    .matrix-node-number {
+        font-size: 22px;
+    }
+
+    .node-center {
+        width: 110px;
+        height: 110px;
+    }
+
+
+    /* =====================================================
+       HEALTH
+       ===================================================== */
+
+    .health-row {
+        font-size: 13px;
+        padding: 14px 10px;
+    }
+
+    .health-total {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    /* =====================================================
+       TAROT MODAL
+       ===================================================== */
+
+    .modal-overlay {
+        padding: 15px;
+
+        align-items: center;
+    }
+
+    .tarot-modal {
+        width: 100%;
+
+        height: auto;
+        max-height: calc(100dvh - 30px);
+
+        padding: 30px 20px;
+
+        display: flex;
+        flex-direction: column;
+
+        overflow: hidden;
+    }
+
+    .tarot-modal-content {
+        display: flex;
+        flex-direction: column;
+
+        gap: 20px;
+
+        flex: 1;
+        min-height: 0;
+
+        overflow: hidden;
+    }
+
+    .img-modal {
+        width: auto;
+        max-width: 200px;
+        max-height: 250px;
+
+        object-fit: contain;
+
+        flex-shrink: 0;
+
+        align-self: center;
+    }
+
+    .tarot-modal-text {
+        display: flex;
+        flex-direction: column;
+
+        flex: 1;
+        min-height: 0;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        padding-right: 8px;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    /* =====================================================
+       READING SECTION
+       ===================================================== */
 
     .reading-cards-section {
         padding: 60px 16px 80px;
@@ -347,7 +1092,9 @@
     }
 
 
-    /* CARD */
+    /* =====================================================
+       READING CARDS
+       ===================================================== */
 
     .reading-cards {
         gap: 28px;
@@ -357,27 +1104,58 @@
         display: flex;
         flex-direction: column;
 
+        width: 100%;
+
+        /*
+         * La card non può superare l'altezza
+         * dello schermo.
+         */
+        min-height: 159dvh;
+
         border-radius: 22px;
     }
 
 
-    /* IMAGE */
+    /* =====================================================
+       READING IMAGE
+       ===================================================== */
 
     .reading-card-image {
         width: 100%;
-        min-height: none;
+        height:inherit;
+        /*
+         * "none" non è valido per min-height.
+         */
+        /* min-height: 0; */
+
         aspect-ratio: 16 / 10;
+
+        flex-shrink: 0;
     }
 
 
-    /* CONTENT */
+    /* =====================================================
+       READING CONTENT
+       ===================================================== */
 
     .reading-card-content {
+        display: flex;
+        flex-direction: column;
+
+        min-width: 0;
+        min-height: 0;
+
         padding: 28px 22px 32px;
+
+        flex: 1;
+
+        overflow: hidden;
     }
 
 
-    /* TOP */
+    /* =====================================================
+       READING TOP
+       ===================================================== */
 
     .reading-card-top {
         margin-bottom: 14px;
@@ -391,7 +1169,9 @@
     }
 
 
-    /* TITLE */
+    /* =====================================================
+       READING TITLE
+       ===================================================== */
 
     .reading-card h3 {
         font-size: 1.55rem;
@@ -399,10 +1179,42 @@
     }
 
 
-    /* TEXT */
+    /* =====================================================
+       READING DESCRIPTION
+       ===================================================== */
 
     .reading-card-description {
+        width: 100%;
+
         margin-top: 18px;
+
+        min-height: 0;
+
+        /*
+         * Limita l'altezza del testo.
+         */
+        max-height: 44vh;
+
+        /*
+         * Scroll solo verticale.
+         */
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        /*
+         * Permette al contenitore flex
+         * di restringersi correttamente.
+         */
+        flex: 1 1 auto;
+
+        padding-right: 8px;
+
+        -webkit-overflow-scrolling: touch;
+
+        scrollbar-width: thin;
+        scrollbar-color:
+            rgba(230, 198, 126, 0.45)
+            rgba(255, 255, 255, 0.04);
     }
 
     .reading-card-description p {
@@ -411,11 +1223,15 @@
     }
 
 
-    /* DETAIL */
+    /* =====================================================
+       READING DETAIL
+       ===================================================== */
 
     .reading-card-detail {
         margin-top: 28px;
         padding-top: 22px;
+
+        flex-shrink: 0;
     }
 
     .reading-card-detail p {
@@ -436,12 +1252,20 @@
         padding-right: 13px;
     }
 
+    .reading-card {
+        max-height: 88dvh;
+    }
+
     .reading-card-content {
         padding: 24px 18px 28px;
     }
 
     .reading-card h3 {
         font-size: 1.4rem;
+    }
+
+    .reading-card-description {
+        max-height: 38vh;
     }
 
     .reading-card-description p {
