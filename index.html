@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+
     <!-- Viewport -->
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0"
     />
 
     <!-- Primary SEO -->
@@ -23,72 +26,97 @@
     />
 
     <meta name="author" content="Matrice del Destino" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content="index, follow" />
 
     <!-- Canonical -->
-    <!-- Sostituisci con il dominio reale -->
-    <link rel="canonical" href="https://www.tuodominio.it/" />
+    <link
+      rel="canonical"
+      href="https://matrixdestiny-mu.vercel.app/"
+    />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Matrice del Destino | Calcolo e Interpretazione"
+    />
+
+    <meta
+      property="og:description"
+      content="Calcola la tua Matrice del Destino e scopri il significato dei numeri legati alla tua data di nascita."
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+
+    <meta
+      property="og:url"
+      content="https://matrixdestiny-mu.vercel.app/"
+    />
+
+    <meta
+      property="og:image"
+      content="https://matrixdestiny-mu.vercel.app/logo-social.png"
+    />
+
+    <meta
+      property="og:image:width"
+      content="1200"
+    />
+
+    <meta
+      property="og:image:height"
+      content="630"
+    />
+
+    <!-- Twitter Card -->
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+
+    <meta
+      name="twitter:title"
+      content="Matrice del Destino | Calcolo e Interpretazione"
+    />
+
+    <meta
+      name="twitter:description"
+      content="Calcola la tua Matrice del Destino e scopri il significato dei numeri legati alla tua data di nascita."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://matrixdestiny-mu.vercel.app/logo-social.png"
+    />
 
     <!-- Theme -->
-    <meta name="theme-color" content="#ffffff" />
+    <meta
+      name="theme-color"
+      content="#ffffff"
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="matrice del Destino" />
-  <meta property="og:description" content="Lettura della tua personale matrice del Destino. Scopri chi sei." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://matrixdestiny-mu.vercel.app" />
-  <meta property="og:image" content="https://matrixdestiny-mu.vercel.app/favicon.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-    <!-- Structured Data / Schema.org -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "Matrice del Destino",
         "url": "https://matrixdestiny-mu.vercel.app/",
-        "description": "Calcolo online della Matrice del Destino e interpretazione numerologica basata sulla data di nascita",
+        "description": "Calcolo online della Matrice del Destino e interpretazione numerologica basata sulla data di nascita.",
         "inLanguage": "it-IT"
       }
     </script>
 
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "Calcolo Matrice del Destino",
-        "url": "https://matrixdestiny-mu.vercel.app/",
-        "applicationCategory": "LifestyleApplication",
-        "operatingSystem": "Any",
-        "description": "Applicazione online per calcolare e interpretare la Matrice del Destino utilizzando la data di nascita",
-        "inLanguage": "it-IT",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "EUR"
-        }
-      }
-    </script>
   </head>
 
   <body>
-    <noscript>
-      <h1>Matrice del Destino</h1>
-
-      <p>
-        Calcola e scopri la tua Matrice del Destino attraverso la tua data di
-        nascita. Il sito richiede JavaScript per utilizzare il calcolatore
-        interattivo.
-      </p>
-    </noscript>
-
     <div id="root"></div>
 
-    <script type="module" src="/src/main.jsx"></script>
+    <script
+      type="module"
+      src="/src/main.jsx"
+    ></script>
   </body>
 </html>
