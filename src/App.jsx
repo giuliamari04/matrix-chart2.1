@@ -3,6 +3,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import MatrixPage from "./pages/MatrixPage";
 import TarotPage from "./pages/TarotPage";
 import ContactPage from "./pages/ContactPage";
+import Footer from "./components/Footer";
 
 function Navbar() {
     return (
@@ -34,6 +35,8 @@ function App() {
                     <Route path="/contatti" element={<ContactPage />} />
                 </Routes>
             </main>
+
+            <Footer></Footer>
         </>
     );
 }
