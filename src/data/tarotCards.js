@@ -80,11 +80,12 @@ export const tarotCards = [
     {
         id: 8,
         number: "VIII",
-        name: "La Giustizia",
+        name: "La Forza",
         category: "Arcani Maggiori",
-        keywords:
-            "Equilibrio, verità e responsabilità.",
-        description: "La Giustizia simboleggia l'equilibrio, la verità e la responsabilità. Rappresenta il giusto e l'equità."
+         keywords:
+            "Forza interiore, coraggio e vitalità.",
+        description: "La Forza rappresenta la forza interiore, il coraggio e la vitalità. Simboleggia la determinazione e il controllo di sé."
+        
     },
 
     {
@@ -110,11 +111,11 @@ export const tarotCards = [
     {
         id: 11,
         number: "XI",
-        name: "La Forza",
+        name: "La Giustizia",
         category: "Arcani Maggiori",
-        keywords:
-            "Forza interiore, coraggio e vitalità.",
-        description: "La Forza rappresenta la forza interiore, il coraggio e la vitalità. Simboleggia la determinazione e il controllo di sé."
+       keywords:
+            "Equilibrio, verità e responsabilità.",
+        description: "La Giustizia simboleggia l'equilibrio, la verità e la responsabilità. Rappresenta il giusto e l'equità."
     },
 
     {
