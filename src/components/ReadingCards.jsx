@@ -1,20 +1,31 @@
 import { matrixMeanings } from "../data/matrixMeanings";
+import { findCode } from "../data/codexMatrixChart";
 import * as arcani from "../assets/images/arcaniMaggiori";
 import "../assets/styles/ReadingCards.css";
+import "../assets/styles/Codex.css"
 
 export default function ReadingCards({ matrix }) {
     if (!matrix) {
         return null;
     }
 
-    /*
-     * Ogni card contiene:
-     *
-     * - key: identificatore della sezione
-     * - label: titolo visualizzato
-     * - number: numero dell'Arcano presente nella matrice
-     * - meaningKey: proprietà da leggere dentro matrixMeanings[numero]
-     */
+    const codexNumbers = [
+        matrix.totdebitoKarmico,
+        matrix.totdebitoKarmicoSecondary,
+        matrix.totdebitoKarmicoterzi,
+    ];
+
+    const hasCodexNumbers = codexNumbers.every(
+        (number) => number !== undefined && number !== null
+    );
+
+    const codex = hasCodexNumbers
+        ? findCode(
+              codexNumbers[0],
+              codexNumbers[1],
+              codexNumbers[2]
+          )
+        : null;
 
     const readings = [
         {
@@ -23,56 +34,48 @@ export default function ReadingCards({ matrix }) {
             number: matrix.totArcana,
             meaningKey: "arcana",
         },
-
         {
             key: "talentoGiorno",
             label: "Talento del giorno",
             number: matrix.talentoGiorno,
             meaningKey: "talentoGiorno",
         },
-
         {
             key: "talentoMese",
             label: "Talento del mese",
             number: matrix.talentoMese,
             meaningKey: "talentoMese",
         },
-
         {
             key: "debitoKarmico",
             label: "Debito karmico",
             number: matrix.totdebitoKarmico,
             meaningKey: "debitoKarmico",
         },
-
         {
             key: "soulTask",
             label: "Obbiettivo dell'anima",
             number: matrix.soulTask,
             meaningKey: "obbiettivoAnima",
         },
-
         {
             key: "debitoKarmicoTerzi",
             label: "Sblocco dal debito karmico",
             number: matrix.totdebitoKarmicoterzi,
             meaningKey: "terzoDebito",
         },
-
         {
             key: "amore",
             label: "Amore",
             number: matrix.totAmore,
             meaningKey: "amore",
         },
-
         {
             key: "mezzo",
             label: "Mezzo",
             number: matrix.totMezzo,
             meaningKey: "mezzo",
         },
-
         {
             key: "soldi",
             label: "Soldi",
@@ -84,12 +87,7 @@ export default function ReadingCards({ matrix }) {
     return (
         <section className="reading-cards-section">
 
-            {/* =====================================================
-                INTRODUZIONE
-            ===================================================== */}
-
             <div className="section-heading">
-
                 <p className="eyebrow">
                     LETTURA
                 </p>
@@ -102,74 +100,23 @@ export default function ReadingCards({ matrix }) {
                     Scopri il significato dei principali numeri
                     presenti nella tua Matrice del Destino.
                 </p>
-
             </div>
-
-
-            {/* =====================================================
-                CARDS
-            ===================================================== */}
 
             <div className="reading-cards">
 
                 {readings.map((reading) => {
-
-                    /*
-                     * Recuperiamo il numero dell'Arcano.
-                     *
-                     * Esempio:
-                     *
-                     * reading.number = 10
-                     *
-                     * → matrixMeanings[10]
-                     */
-
-                    const meaning = matrixMeanings[reading.number];
-
-
-                    /*
-                     * Recuperiamo l'immagine corrispondente.
-                     *
-                     * Numero 10
-                     * → ar10
-                     */
-
-                    const arcanaImage =
-                        arcani[`ar${reading.number}`];
-
-
-                    /*
-                     * Se il numero non esiste in matrixMeanings
-                     * non mostriamo la card.
-                     */
+                    const meaning =
+                        matrixMeanings[reading.number];
 
                     if (!meaning) {
                         return null;
                     }
 
-
-                    /*
-                     * Recuperiamo la lettura specifica
-                     * per questa tipologia.
-                     *
-                     * Esempio:
-                     *
-                     * numero = 10
-                     * meaningKey = "amore"
-                     *
-                     * → meaning.amore
-                     *
-                     * oppure:
-                     *
-                     * numero = 10
-                     * meaningKey = "talentoGiorno"
-                     *
-                     * → meaning.talentoGiorno
-                     */
+                    const arcanaImage =
+                        arcani[`ar${reading.number}`];
 
                     const readingText =
                         meaning[reading.meaningKey];
-
 
                     return (
                         <article
@@ -177,12 +124,7 @@ export default function ReadingCards({ matrix }) {
                             className={`reading-card reading-card--${reading.key}`}
                         >
 
-                            {/* =================================================
-                                IMMAGINE ARCANO
-                            ================================================= */}
-
                             <div className="reading-card-image">
-
                                 {arcanaImage && (
                                     <img
                                         src={arcanaImage}
@@ -191,21 +133,11 @@ export default function ReadingCards({ matrix }) {
                                         decoding="async"
                                     />
                                 )}
-
                             </div>
-
-
-                            {/* =================================================
-                                CONTENUTO
-                            ================================================= */}
 
                             <div className="reading-card-content">
 
-
-                                {/* TOP */}
-
                                 <div className="reading-card-top">
-
                                     <span className="reading-card-label">
                                         {reading.label}
                                     </span>
@@ -213,53 +145,79 @@ export default function ReadingCards({ matrix }) {
                                     <span className="reading-card-number">
                                         {reading.number}
                                     </span>
-
                                 </div>
-
-
-                                {/* TITOLO ARCANO */}
 
                                 <h3>
                                     {meaning.title}
                                 </h3>
 
-
-                                {/* PAROLE CHIAVE */}
-
                                 {meaning.keywords && (
                                     <div className="reading-card-keywords">
-
                                         <p>
                                             {meaning.keywords}
                                         </p>
-
                                     </div>
                                 )}
-
-
-                                {/* =================================================
-                                    LETTURA SPECIFICA
-                                ================================================= */}
 
                                 {readingText && (
                                     <div className="reading-card-description">
-
                                         <p>
                                             {readingText}
-                                        </p>
+                                              {/*
+                                    CODICE KARMIKO
+                                    Viene mostrato SOLO dentro
+                                    la card "Debito karmico"
+                                */}
+
+                                {reading.key === "debitoKarmico" && (
+                                    <div className="reading-card-codex">
+
+                                        <div className="reading-card-codex-title">
+                                            <h2>
+                                                Codice karmico
+                                            </h2>
+                                            <span>
+                                            <strong>
+                                                {codexNumbers.join(" · ")}
+                                            </strong>
+                                            </span>
+                                        </div>
+
+                                        {codex ? (
+                                            <>
+                                                {codex.title && (
+                                                    <h4>
+                                                        {codex.title}
+                                                    </h4>
+                                                )}
+
+                                                {codex.text && (
+                                                    <p>
+                                                        {codex.text}
+                                                    </p>
+                                                )}
+                                            </>
+                                        ) : (
+                                            <p>
+                                                Nessuna lettura disponibile
+                                                per questo codice karmico.
+                                            </p>
+                                        )}
 
                                     </div>
                                 )}
+                                        </p>
+                                    </div>
+                                )}
 
+                              
 
                             </div>
-
                         </article>
                     );
                 })}
 
             </div>
-
         </section>
     );
 }
