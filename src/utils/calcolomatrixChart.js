@@ -185,7 +185,7 @@ export function calculateMatrix(dateString) {
   const primaSezione = generaSequenzaNumeri(talentoGiorno, totmainMaleLineTop);
   const Sezione2 = generaSequenzaNumeri(totmainMaleLineTop, talentoMese);
   const Sezione3 = generaSequenzaNumeri(talentoMese, totmainFemaleLineTop);
-  const Sezione4 = generaSequenzaNumeri(totmainMaleLineTop, soulTask);
+  const Sezione4 = generaSequenzaNumeri(totmainFemaleLineTop, soulTask);
   const Sezione5 = generaSequenzaNumeri(soulTask, totmainMaleLineBot);
   const Sezione6 = generaSequenzaNumeri(totmainMaleLineBot, totdebitoKarmico);
   const Sezione7 = generaSequenzaNumeri(totdebitoKarmico, totmainFemaleLineBot);

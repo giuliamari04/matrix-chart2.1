@@ -14,6 +14,9 @@ console.log("YearSection1:", matrix?.YearSection1);
 
     return sezione;
   };
+  function reverseArray(array) {
+    return [...array].reverse();
+  }
 
  const renderYearSection = (sezione, startX, startY, num1, num2 , rot, where) => {
   if (!Array.isArray(sezione)) return null;
@@ -21,6 +24,7 @@ console.log("YearSection1:", matrix?.YearSection1);
   return sezione.map((item, index) => {
     const x = startX + index * num1;
     const y = startY + index * num2;
+
 
     return (
       <text
@@ -158,7 +162,7 @@ console.log("YearSection1:", matrix?.YearSection1);
         className="section-text"
         transform="rotate(-69 1020 800)"
       >
-        {renderSezione(matrix.Sezione5)}
+        {renderSezione(reverseArray(matrix.Sezione5))}
       </text>
 
 
@@ -172,7 +176,7 @@ console.log("YearSection1:", matrix?.YearSection1);
         className="section-text"
         transform="rotate(-22 800 1030)"
       >
-        {renderSezione(matrix.Sezione6)}
+        {renderSezione(reverseArray(matrix.Sezione6))}
       </text>
 
 
@@ -186,7 +190,7 @@ console.log("YearSection1:", matrix?.YearSection1);
         className="section-text"
         transform="rotate(22 400 1030)"
       >
-        {renderSezione(matrix.Sezione7)}
+        {renderSezione(reverseArray(matrix.Sezione7))}
       </text>
 
 
@@ -200,7 +204,7 @@ console.log("YearSection1:", matrix?.YearSection1);
         className="section-text"
         transform="rotate(69 180 800)"
       >
-        {renderSezione(matrix.Sezione8)}
+        {renderSezione(reverseArray(matrix.Sezione8))}
       </text>
 
       {/* ================================================= */}
@@ -230,12 +234,12 @@ console.log("YearSection1:", matrix?.YearSection1);
       {/* SEZIONE 5    - anni                                     */}
       {/* ================================================= */}
 
-    {renderYearSection(matrix.YearSection5, 1005, 910, 14, -35,-0,"end")}
+    {renderYearSection(reverseArray(matrix.YearSection5), 1005, 910, 14, -35,-0,"end")}
   {/* ================================================= */}
       {/* SEZIONE 6    - anni                                     */}
       {/* ================================================= */}
 
-    {renderYearSection(matrix.YearSection6, 710, 1085, 35, -15,10, "end")}
+    {renderYearSection(reverseArray(matrix.YearSection6), 710, 1085, 35, -15,10, "end")}
   {/* ================================================= */}
       {/* SEZIONE 7    - anni                                     */}
       {/* ================================================= */}
