@@ -1,7 +1,7 @@
 export const tarotCards = [
     {
         id: 22,
-        number: "0",
+        number: "0 / XXII",
         name: "Il Matto",
         category: "Arcani Maggiori",
         keywords:"Libertà, spontaneità, viaggio e nuovo inizio.",

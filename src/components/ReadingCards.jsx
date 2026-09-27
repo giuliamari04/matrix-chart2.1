@@ -54,7 +54,7 @@ export default function ReadingCards({ matrix }) {
         },
         {
             key: "soulTask",
-            label: "Obbiettivo dell'anima",
+            label: "Obbiettivo dell'anima e sblocco ricchezza",
             number: matrix.soulTask,
             meaningKey: "obbiettivoAnima",
         },
@@ -72,7 +72,7 @@ export default function ReadingCards({ matrix }) {
         },
         {
             key: "mezzo",
-            label: "Mezzo",
+            label: "Mezzo per il cambiamento",
             number: matrix.totMezzo,
             meaningKey: "mezzo",
         },
