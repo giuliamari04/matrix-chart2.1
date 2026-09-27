@@ -50,7 +50,7 @@ const codexMatrix = {
     },
 
     "5-6-17": {
-        title: "Orgoglio",
+        title: "L' Orgoglio",
         text: "lettura codice karmico in arrivo...",
     },
 
