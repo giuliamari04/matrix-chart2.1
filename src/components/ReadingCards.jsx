@@ -1,5 +1,6 @@
 import { matrixMeanings } from "../data/matrixMeanings";
 import { findCode } from "../data/codexMatrixChart";
+import {findCodeMoney} from "../data/codexMatrixChartMoney"
 import * as arcani from "../assets/images/arcaniMaggiori";
 import "../assets/styles/ReadingCards.css";
 import "../assets/styles/Codex.css"
@@ -8,13 +9,18 @@ export default function ReadingCards({ matrix }) {
     if (!matrix) {
         return null;
     }
-
+    // codex coda karmica
     const codexNumbers = [
         matrix.totdebitoKarmico,
         matrix.totdebitoKarmicoSecondary,
         matrix.totdebitoKarmicoterzi,
     ];
 
+    const codexNumbersMoney =[
+        matrix.totMezzo,
+        matrix.totSoldi,
+        matrix.totsoulTaskterzi,
+    ]
     const hasCodexNumbers = codexNumbers.every(
         (number) => number !== undefined && number !== null
     );
@@ -26,6 +32,11 @@ export default function ReadingCards({ matrix }) {
               codexNumbers[2]
           )
         : null;
+    const codexMoney = hasCodexNumbers ? findCodeMoney(
+        codexNumbersMoney[0],
+        codexNumbersMoney[1],
+        codexNumbersMoney[2]
+    ) : null;
 
     const readings = [
         {
@@ -194,6 +205,41 @@ export default function ReadingCards({ matrix }) {
                                                 {codex.text && (
                                                     <p>
                                                         {codex.text}
+                                                    </p>
+                                                )}
+                                            </>
+                                        ) : (
+                                            <p>
+                                                Nessuna lettura disponibile
+                                                per questo codice karmico.
+                                            </p>
+                                        )}
+
+                                    </div>
+                                )}
+
+
+
+                                {/* codice soldi */}
+                                 {reading.key === "soldi" && (
+                                    <div className="reading-card-codex">
+
+                                        <div className="reading-card-codex-title">
+                                            <h2>
+                                                Codice karmico
+                                            </h2>
+                                            <span>
+                                            <strong>
+                                                {codexNumbersMoney.join(" · ")}
+                                            </strong>
+                                            </span>
+                                        </div>
+
+                                        {codexMoney ? (
+                                            <>
+                                                {codexMoney.text && (
+                                                    <p>
+                                                        {codexMoney.text}
                                                     </p>
                                                 )}
                                             </>
