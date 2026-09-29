@@ -4,6 +4,8 @@ import {findCodeMoney} from "../data/codexMatrixChartMoney"
 import * as arcani from "../assets/images/arcaniMaggiori";
 import "../assets/styles/ReadingCards.css";
 import "../assets/styles/Codex.css"
+import { Link } from "react-router-dom";
+
 
 export default function ReadingCards({ matrix }) {
     if (!matrix) {
@@ -263,6 +265,11 @@ export default function ReadingCards({ matrix }) {
                     );
                 })}
 
+            </div>
+            <div className="contacts-text-low"> 
+                <h2>...e se vuoi una lettura completa o più dettagliata 
+                    <Link to="/contatti" className="eyebrow2"> contattami</Link>
+                </h2>
             </div>
         </section>
     );
